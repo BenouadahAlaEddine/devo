@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-app-deployment
+spec:
+  replicas: 2 # 2 instances de l'application
+  selector:
+    matchLabels:
+      app: devops-app
+  template:
+    metadata:
+      labels:
+        app: devops-app
+    spec:
+      containers:
+      - name: devops-app
+        # Remplacez par votre image Docker Hub
+        image: <aladin78>/devops-project:latest
+        ports:
+        - containerPort: 5000
